@@ -103,7 +103,13 @@ public class VideoServer extends KryoServer {
 
 		@Override
 		public void run() {
-
+			Robot robot = null;
+			try {
+				robot = new Robot();
+			} catch (AWTException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
 			while(c.isConnected())
 			{
 				long before = System.currentTimeMillis();

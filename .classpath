@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
@@ -11,5 +11,12 @@
 	<classpathentry kind="lib" path="jna-platform-5.7.0.jar"/>
 	<classpathentry kind="lib" path="jna-platform-5.7.0-jpms.jar"/>
 	<classpathentry kind="lib" path="kryonet-2.21-all.jar"/>
+	<classpathentry kind="lib" path="ffmpeg-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="javacpp.jar"/>
+	<classpathentry kind="lib" path="javacpp-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="javacv.jar"/>
+	<classpathentry kind="lib" path="opencv-windows-x86_64.jar"/>
+	<classpathentry kind="lib" path="ffmpeg-platform.jar"/>
+	<classpathentry kind="lib" path="ffmpeg.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -3,13 +3,11 @@ package kryoapproach;
 import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
+import java.awt.event.InputEvent;
+import java.awt.image.Raster;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.imageio.ImageIO;
 
 import com.esotericsoftware.kryonet.Connection;
 
@@ -59,8 +57,8 @@ public class VideoServer extends KryoServer {
 			if(robot != null)
 			{
 				if(input.pressed)
-					robot.mousePress(input.button);
-				else robot.mouseRelease(input.button);
+					robot.mousePress(InputEvent.getMaskForButton(input.button));
+				else robot.mouseRelease(InputEvent.getMaskForButton(input.button));
 			}
 		}
 		else if(data instanceof KeyboardInput)
@@ -115,18 +113,24 @@ public class VideoServer extends KryoServer {
 				long before = System.currentTimeMillis();
 				
 				long time = System.currentTimeMillis();
+				/*
 				BufferedImage image = JNAScreenShot.getScreenshot(new Rectangle(1920, 1080));
 				System.out.println("it took " + (System.currentTimeMillis() - time) + "ms to take screenshot");
 				time = System.currentTimeMillis();
 				ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
 				try {
-					ImageIO.write(image, "jpg", byteStream);
+					ImageIO.write(image, "png", byteStream);
 				} catch (IOException e2) {
 					e2.printStackTrace();
 				}
+				*/
+				time = System.currentTimeMillis();
+				Raster raster = JNAScreenShot.getScreenshotData(new Rectangle(1920, 1080));
+				System.out.println("it took " + (System.currentTimeMillis() - time) + " ms to write raster");
+				
 				System.out.println("it took " + (System.currentTimeMillis() - time) + "ms to write image");
 				time = System.currentTimeMillis();
-				byte[] finalArray = byteStream.toByteArray();
+				byte[] finalArray = new byte[] {}; //byteStream.toByteArray();
 				System.out.println("it took " + (System.currentTimeMillis() - time) + "ms to get array");
 				
 				
